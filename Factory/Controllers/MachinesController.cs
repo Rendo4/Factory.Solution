@@ -46,5 +46,21 @@ namespace Factory.Controllers
       ViewBag.PageTitle = thisMachine.Name;
       return View(thisMachine);
     }
+
+    public ActionResult Edit(int id)
+    {
+      ViewBag.Tab = "machine";
+      Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+      ViewBag.PageTitle = "Edit " + thisMachine.Name;
+      return View(thisMachine);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Machine machine)
+    {
+      _db.Entry(machine).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = machine.MachineId});
+    }
   }
 }

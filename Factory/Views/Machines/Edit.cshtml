@@ -1,0 +1,29 @@
+@{
+  Layout="_Layout";
+}
+@model Factory.Models.Machine
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.MachineId)
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
+  <input type="submit" value="Save Changes">
+}
+
+<h4>@Html.DisplayFor(m => m.Name)'s Machine Certifications:</h4>
+  <section class="engineer-cert-container">
+  @foreach(var join in Model.Certifications)
+  {
+    <div class="engineer-cert">
+      <p>@Html.ActionLink($"{join.Engineer.Name}", "Details", "Egnineers", new { id = join.Engineer.EngineerId }, new { @Class = "btn btn-success"})</p>
+      @using (Html.BeginForm("DeleteEngineer", "Machines"))
+        {
+          @Html.Hidden("joinId", @join.MachineEngineerId)
+          <input type="submit" value="X" class="btn btn-danger btn-machine-small"/>
+        }
+    </div>
+  }
+  </section>
+
+  <p>@Html.ActionLink("Cancel", "Details", new { id = Model.MachineId }, new { @Class = "btn btn-primary"})</p>
