@@ -1,0 +1,38 @@
+@{
+  Layout="_Layout";
+}
+
+@using Factory.Models
+
+<h1>Welcome!</h1>
+
+<h3>Engineers</h3>
+@if (@Model.Count == 0)
+{
+  <h3>No Engineers in the system</h3>
+}
+
+<ul>
+
+  @foreach (MachineEngineer machineEngineer in Model)
+  {
+      <li>@Html.ActionLink($"{machineEngineer.Engineer.Name}", "Details", "Engineers", new { id = machineEngineer.Engineer.EngineerId }, new { @Class = "btn btn-success"})</li>
+  }
+  
+</ul>
+
+<h3>Machines</h3>
+
+@if (@Model.Count == 0)
+{
+  <h3>No Machines in the system</h3>
+}
+
+<ul>
+
+  @foreach (MachineEngineer machineEngineer in Model)
+  {
+      <li>@Html.ActionLink($"{machineEngineer.Machine.Name}", "Details", "Machines", new { id = machineEngineer.Machine.MachineId }, new { @Class = "btn btn-success"})</li>
+  }
+  
+</ul>
