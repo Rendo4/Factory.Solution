@@ -46,5 +46,21 @@ namespace Factory.Controllers
       ViewBag.PageTitle = thisEngineer.Name;
       return View(thisEngineer);
     }
+
+     public ActionResult Edit(int id)
+    {
+      ViewBag.Tab = "engineer";
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      ViewBag.PageTitle = "Edit " + thisEngineer.Name;
+      return View(thisEngineer);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Engineer engineer)
+    {
+      _db.Entry(engineer).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = engineer.EngineerId});
+    }
   }
 }

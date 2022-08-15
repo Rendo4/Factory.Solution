@@ -1,0 +1,18 @@
+@{
+  Layout="_Layout";
+}
+
+@model Factory.Models.Engineer
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.EngineerId)
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
+  @Html.LabelFor(model => model.JobTitle)
+  @Html.EditorFor(model => model.JobTitle)
+  <input type="submit" value="Save Changes">
+}
+
+
+<p>@Html.ActionLink("Cancel", "Details", new { id = Model.EngineerId }, new { @Class = "btn btn-primary"})</p>
