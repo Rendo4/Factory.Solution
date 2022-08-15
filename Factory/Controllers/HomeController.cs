@@ -24,6 +24,5 @@ namespace Factory.Controllers
         List<MachineEngineer> model = _db.MachineEngineer.ToList();
         return View(model);
       }
-
     }
 }

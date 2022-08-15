@@ -1,0 +1,23 @@
+@{
+  Layout="_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h3>@Html.DisplayNameFor(m => m.Name): @Html.DisplayFor(m => m.Name)</h3>
+<h3>@Html.DisplayNameFor(m => m.JobTitle): @Html.DisplayFor(m => m.JobTitle)</h3>
+
+@if(@Model.Certifications.Count == 0)
+{
+  <p>This engineer has no certifications</p>
+}
+else
+{
+  <h4>@Html.DisplayFor(m => m.Name)'s Certifications:</h4>
+  <section>
+  @foreach(var join in Model.Certifications)
+  {
+    <p>@Html.ActionLink($"{join.Machine.Name}", "Details", "Machines", new { id = join.Machine.MachineId } ,new { @Class = "btn btn-success"})</p>
+  }
+  </section>
+}

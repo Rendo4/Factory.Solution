@@ -1,0 +1,14 @@
+@{
+  Layout="_Layout";
+}
+@model Factory.Models.Engineer
+
+<h2>New Engineer</h2>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
+  @Html.LabelFor(model => model.JobTitle)
+  @Html.EditorFor(model => model.JobTitle)
+  <input type="submit" value="Add to Roster">
+}

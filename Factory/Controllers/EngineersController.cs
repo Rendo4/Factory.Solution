@@ -23,5 +23,28 @@ namespace Factory.Controllers
       List<Engineer> model = _db.Engineers.ToList();
       return View(model);
     }
+
+    public ActionResult Create()
+    {
+      ViewBag.PageTitle = "New Engineer";
+      ViewBag.Tab = "engineer";
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Create(Engineer engineer)
+    {
+      _db.Engineers.Add(engineer);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult Details(int id)
+    {
+      ViewBag.Tab = "engineer";
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      ViewBag.PageTitle = thisEngineer.Name;
+      return View(thisEngineer);
+    }
   }
 }
