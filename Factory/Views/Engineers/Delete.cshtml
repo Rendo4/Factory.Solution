@@ -1,0 +1,12 @@
+@{
+  Layout="_Layout";
+}
+
+@model Factory.Models.Engineer
+<h1>Delete @Html.DisplayFor(m => m.Name)?</h1>
+
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Delete" Class="btn btn-danger" />
+}
+<p>@Html.ActionLink("Cancel", "Details", new { id = Model.EngineerId }, new { @Class = "btn btn-primary"})</p>
