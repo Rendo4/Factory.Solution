@@ -21,8 +21,10 @@ namespace Factory.Controllers
       {
         ViewBag.PageTitle ="Home";
         ViewBag.Tab="home";
+        ViewBag.DateTime= DateTime.Now;
         List<MachineEngineer> model = _db.MachineEngineer.ToList();
         return View(model);
       }
+
     }
 }

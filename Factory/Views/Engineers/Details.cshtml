@@ -6,6 +6,7 @@
 
 <h3>@Html.DisplayNameFor(m => m.Name): @Html.DisplayFor(m => m.Name)</h3>
 <h3>@Html.DisplayNameFor(m => m.JobTitle): @Html.DisplayFor(m => m.JobTitle)</h3>
+<h3>@Html.DisplayNameFor(m => m.StartDate): @Html.DisplayFor(m => m.StartDate)</h3>
 
 @if(@Model.Certifications.Count == 0)
 {
@@ -21,3 +22,9 @@ else
   }
   </section>
 }
+
+<nav>
+  <p>@Html.ActionLink("Edit", "Edit", new { id = Model.EngineerId }, new { @Class = "btn btn-primary"})</p>
+  <p>@Html.ActionLink("Delete", "Delete", new { id = Model.EngineerId }, new { @Class = "btn btn-primary"})</p>
+  <p>@Html.ActionLink("Add New Certification", "AddMachine", new { id = Model.EngineerId}, new { @Class = "btn btn-primary"})</p>
+</nav>
