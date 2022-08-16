@@ -1,4 +1,4 @@
-# Hair Salon #
+# Dr. Sillystringz's Factory#
 
 #### _A MVC application in C# to show my early learning of mysql database basics. The application keeps track of a factories engineers and the different machines they have and who is certified to work on what mhich machines._
 
