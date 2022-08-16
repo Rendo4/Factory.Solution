@@ -1,4 +1,5 @@
 <nav class="navbar">
   <p class="no-margin">@Html.ActionLink("Go Home", "Index", "Home", null, @ViewBag.Tab == "home" ? new {@Class="tab active-tab"}: new {@Class="tab btn-background"})</p>
   <p class="no-margin">@Html.ActionLink("See all engineers", "Index", "Engineers", null, @ViewBag.Tab == "engineer" ? new {@Class="active-tab tab"}: new {@Class="tab btn-background"})</p> 
+  <p class="no-margin">@Html.ActionLink("See all machines", "Index", "Machines", null, @ViewBag.Tab == "machine" ? new {@Class="tab active-tab"}: new {@Class="tab btn-background"})</p>
 </nav>
